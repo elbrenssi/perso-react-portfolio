@@ -30,11 +30,11 @@ const skills = [
     "GitHub Actions",
 ];
 
-const dots = [...Array(30)].map(() => ({
+const dots = [...Array(80)].map(() => ({
     left: `${Math.random() * 100}%`,
     top: `${Math.random() * 100}%`,
-    duration: 15 + Math.random() * 20,
-    delay: Math.random() * 5,
+    duration: 15 + Math.random() * 5,
+    delay: Math.random() * 1,
 }));
 
 
