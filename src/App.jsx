@@ -9,7 +9,7 @@ import { Contact } from "@/sections/Contact";
 
 function App() {
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden bg-background text-foreground transition-colors duration-300">
       <Navbar />
       <main>
         <Hero />

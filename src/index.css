@@ -1,6 +1,31 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
+  --color-background: #f7f9fc;
+  --color-foreground: #131c25;
+
+  --color-card: #ffffff;
+
+  --color-primary: #20b2a6;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #e9eff5;
+  --color-secondary-foreground: #117a73;
+
+  --color-muted: #edf1f5;
+  --color-muted-foreground: #5e6875;
+
+  --color-border: #d8e0e8;
+
+  --radius: 0.75rem;
+
+  --color-highlight: #f5a623;
+  --color-surface: #eef3f8;
+}
+
+.dark {
   --color-background: #0f1418;
   --color-foreground: #f0f2f5;
 
@@ -16,8 +41,6 @@
   --color-muted-foreground: #7a8491;
 
   --color-border: #242b32;
-
-  --radius: 0.75rem;
 
   --color-highlight: #f5a623;
   --color-surface: #1a2329;
@@ -36,6 +59,13 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: "Inter", sans-serif;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-duration: 300ms;
+  }
+
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-duration: 300ms;
   }
 
   .font-serif {

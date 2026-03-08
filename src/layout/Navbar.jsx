@@ -1,6 +1,7 @@
 import { Button } from "@/components/Button";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTheme } from "@/hooks/useTheme.js";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -14,6 +15,7 @@ const navLinks = [
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,8 +59,15 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-3">
+          <button
+            aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+            onClick={toggleTheme}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors duration-300 hover:border-primary/60 hover:text-primary"
+          >
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
           <a href="#contact"><Button size="sm">Contact Me</Button></a>
         </div>
 
@@ -86,7 +95,16 @@ export const Navbar = () => {
               </a>
             ))}
 
-            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}><Button>Contact Me</Button></a>
+            <div className="flex items-center gap-3 pt-2">
+              <button
+                aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+                onClick={toggleTheme}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors duration-300 hover:border-primary/60 hover:text-primary"
+              >
+                {isDark ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
+              <a href="#contact" className="flex-1" onClick={() => setIsMobileMenuOpen(false)}><Button className="w-full">Contact Me</Button></a>
+            </div>
           </div>
         </div>
       )}
